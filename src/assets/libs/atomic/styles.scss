@@ -1,0 +1,121 @@
+
+//Position
+.pos-r { position: relative; }
+.pos-s { position: static; }
+.pos-a { position: absolute; }
+.pos-f { position: fixed; }
+
+.trbl {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.t {   top: 0; }
+.r {   right: 0; }
+.b {   bottom: 0; }
+.l {   left: 0; }
+.t-a { top: auto; }
+.r-a { right: auto; }
+.b-a { bottom: auto; }
+.l-a { left: auto; }
+
+//Float
+.fl-l { float: left; }
+.fl-r { float: right; }
+.fl-n {  float: none; }
+
+//Display
+.d-f {  display: flex; }
+.d-if { display: inline-flex; }
+.d-b {  display: block; }
+.d-n {  display: none; }
+.d-i {  display: inline; }
+.d-ib { display: inline-block; }
+
+//Visibility
+.v-h { visibility: hidden; }
+.v-v { visibility: visible; }
+
+//Overflow
+.ov-h { overflow: hidden; }
+.ov-v { overflow: visible; }
+.ov-s { overflow: scroll; }
+.ov-a { overflow: auto; }
+
+.ovx-h { overflow-x: hidden; }
+.ovx-v { overflow-x: visible; }
+.ovx-s { overflow-x: scroll; }
+.ovx-a { overflow-x: auto; }
+
+.ovy-h { overflow-y: hidden; }
+.ovy-v { overflow-y: visible; }
+.ovy-s { overflow-y: scroll; }
+.ovy-a { overflow-y: auto; }
+
+// Margin, padding
+.m-a {   margin: auto; }
+.mt-a {  margin-top: auto; }
+.mr-a {  margin-right: auto; }
+.mb-a {  margin-bottom: auto; }
+.ml-a {  margin-left: auto; }
+.mtb-a { margin-top: auto;    margin-bottom: auto; }
+.mlr-a { margin-left: auto;   margin-right: auto; }
+
+.p-a {    padding: auto; }
+.pt-a {   padding-top: auto; }
+.pr-a {   padding-right: auto; }
+.pb-a {   padding-bottom: auto; }
+.pl-a {   padding-left: auto; }
+.ptb-a {  padding-top: auto;    padding-bottom: auto; }
+.plr-a {  padding-left: auto;   padding-right: auto; }
+
+// Typography
+.fw-n {  font-weight: normal; }
+.fw-b {  font-weight: bold; }
+.fw-br { font-weight: bolder; }
+.fw-lr { font-weight: lighter; }
+
+.fs-n {  font-style: normal; }
+.fs-i {  font-style: italic; }
+
+.va-t {  vertical-align: top; }
+.va-m {  vertical-align: middle; }
+.va-bl { vertical-align: baseline; }
+.va-b {  vertical-align: bottom; }
+
+.ta-l { text-align: left; }
+.ta-r { text-align: right; }
+.ta-c {  text-align: center; }
+.ta-j {  text-align: justify; }
+
+.td-n { text-decoration: none; }
+.td-u { text-decoration: underline; }
+.td-l { text-decoration: line-through; }
+
+.tt-u { text-transform: uppercase; }
+.tt-n { text-transform: none; }
+.tt-c { text-transform: capitalize; }
+.tt-l { text-transform: lowercase; }
+
+.lh-1 { line-height: 1; }
+
+.whs-n {  white-space: normal; }
+.whs-p {  white-space: pre; }
+.whs-nw { white-space: nowrap; }
+
+// Background
+.bg-n { background: none; }
+.bgc-t { background-color: transparent; }
+
+// Outline
+.ol-n { outline: none; }
+
+// Border
+.bd-n {   border: none; }
+.bdcl-c { border-collapse: collapse; }
+.bdrs-0 { border-radius: 0; }
+
+//Fonts
+.ff-main { font-family: $fonts; }

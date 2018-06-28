@@ -1,0 +1,58 @@
+// Миксин генерации классов для свойств 'height' и 'width'
+// принимает $prop - имя свойства, $step - шаг, $maxVal - максимальное значение
+@mixin size($prop, $step, $maxVal) {
+  $propStart: 1; 
+  @for $i from 1 through $maxVal / $step {
+    .#{checkProp($prop)}#{$propStart}{
+      #{$prop}: $propStart * 1px;
+      $propStart: $propStart + $step;
+    }
+  }
+}
+
+// Миксин генерации классов для свойств 'paddin' и 'margin'
+// принимает $prop - имя свойства, $dir - направление, $step - шаг, $maxVal - максимальное значение
+@mixin indent($prop, $dir, $step, $maxVal) {
+  $propStart: 0;
+  @for $i from 0 through $maxVal / $step {
+    $classSuf: null;
+    .#{checkProp($prop)}#{$dir}#{$propStart}{
+      #{$prop}-#{checkDir($dir)}: $propStart * 1px;
+      $propStart: $propStart + $step;
+    }
+  }
+}
+
+// Миксин генерации классов для свойства 'opacity'
+// принимает $step - шаг
+@mixin opacity($step) {
+  $propStart: 0;
+  @for $i from 0 through 100 / $step {
+    .op-#{$propStart} {
+      opacity: $propStart / 100;
+      $propStart: $propStart + $step;
+    }
+  }
+}
+
+// Миксин генерации классов для свойства 'font-weight'
+@mixin fw() {
+  $propStart: 100;
+  @for $i from 1 through 9 {
+    .fw#{$propStart} {
+      font-weight: $propStart;
+      $propStart: $propStart + 100;
+    }
+  }
+}
+
+// Миксин генерации классов для свойства 'font'
+@mixin fz($step, $maxVal) {
+  $propStart: 10;
+  @for $i from 0 through ($maxVal - $propStart) / $step {
+    .fz-#{$propStart} {
+      font: #{$propStart*1px}/#{$propStart*1px + 2} #{'$fonts'};
+      $propStart: $propStart + $step;
+    }
+  }
+}

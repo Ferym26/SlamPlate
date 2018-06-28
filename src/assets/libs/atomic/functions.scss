@@ -1,0 +1,13 @@
+@function checkDir($value) {
+  @if $value == t {@return 'top'};
+  @if $value == r {@return 'right'};
+  @if $value == b {@return 'bottom'};
+  @if $value == l {@return 'left'};
+}
+
+@function checkProp($value) {
+	@if $value == width {@return 'w'};
+	@if $value == height {@return 'h'};
+  @if $value == padding {@return 'p'};
+  @if $value == margin {@return 'm'};
+}

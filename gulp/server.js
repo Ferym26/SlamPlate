@@ -7,7 +7,7 @@ module.exports = function (browserSync, op) {
 		
 		browserSync.init({
 			server: {
-				baseDir: 'app'
+				baseDir: 'local/templates/html'
 			},
 			port: 7500,
 			notify: false,

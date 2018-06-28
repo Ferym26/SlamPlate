@@ -10,13 +10,12 @@ module.exports = function (gulp, plugins, libs, browserSync, op) {
 				gulp.src('src/pages/*.pug', { read: false })
 					.pipe(libs.gulpif(global.watch, libs.emitty.filter(global.emittyChangedFile)))
 					.pipe(plugins.pug({ 
-						pretty: true,
-						locals: op
+						pretty: true
 					}))
 					.on('error', plugins.notify.onError({
 						title: 'PUG error'
 					}))
-					.pipe(gulp.dest('app'))
+					.pipe(gulp.dest('local/templates/html'))
 					.on('end', resolve)
 					.on('error', reject)
 					// .pipe(browserSync.reload({stream: true}));

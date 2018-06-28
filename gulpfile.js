@@ -72,8 +72,8 @@ gulp.task('watch', () => {
 			global.emittyChangedFile = filepath;
 		});
 
-	gulp.watch('app/js/*.js').on("change", browserSync.reload);
-	gulp.watch('app/*.html').on('change', browserSync.reload);
+	gulp.watch('local/templates/html/js/*.js').on("change", browserSync.reload);
+	gulp.watch('local/templates/html/*.html').on('change', browserSync.reload);
 
 	gulp.watch(['core/sprites/png/*.{png,jpg}'], gulp.series('sprite:png'));
 	gulp.watch(['core/sprites/svg/*.svg'], gulp.series('sprite:svg'));
