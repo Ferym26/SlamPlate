@@ -1,0 +1,10 @@
+{
+	"path": {
+		"baseDir": "app",
+		"sass": "sass",
+		"pug": "pug",
+		"css": "css",
+		"src": "src",
+		"core": "core"
+	}
+}

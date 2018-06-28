@@ -1,0 +1,157 @@
+@mixin font-face($name, $file, $weight: normal, $style: normal)
+	@font-face
+		font-family: "#{$name}"
+		src: url('../fonts/#{$file}.woff') format('woff2'), url('../fonts/#{$file}.woff') format('woff')
+		font-weight: $weight
+		font-style: $style
+		font-display: swap
+
+
+
+// Simple pseudoelement
+=pseudo
+	content: ''
+	position: absolute
+	display: block
+
+
+//vertical center
+=center	
+	top: 50%
+	left: 50%
+	transform: translate(-50%, -50%)
+
+
+//horizontal center
+=wcenter	
+	left: 50%
+	transform: translate(-50%, 0)
+
+
+//horizontal center
+=hcenter	
+	top: 50%
+	transform: translate(0, -50%)
+
+
+//triangle
+=arr($width, $height, $bg, $direction)
+	width: 0px
+	height: 0px
+	border-style: solid
+	@if $direction == t
+		border-width: 0 $width / 2 + px $height + px $width / 2 + px
+		border-color: transparent transparent $bg transparent
+	@if $direction == r
+		border-width: $height / 2 + px 0 $height / 2 + px $width + px
+		border-color: transparent transparent transparent $bg
+	@if $direction == b
+		border-width: $height + px $width / 2 + px 0 $width / 2 + px
+		border-color: $bg transparent transparent transparent
+	@if $direction == l
+		border-width: $height / 2 + px $width + px $height / 2 + px 0
+		border-color: transparent $bg transparent transparent
+	@if $direction == tl
+		border-width: $height + px $width + px 0 0
+		border-color: $bg transparent transparent transparent
+	@if $direction == tr
+		border-width: 0 $width + px $height + px 0
+		border-color: transparent $bg transparent transparent
+	@if $direction == br
+		border-width: 0 0 $height + px $width + px
+		border-color: transparent transparent $bg transparent
+	@if $direction == bl
+		border-width: $height + px 0 0 $width + px
+		border-color: transparent transparent transparent $bg
+
+
+
+// Обрезание текста с 3 точиями
+=text-overflow
+	overflow: hidden
+	text-overflow: ellipsis
+	white-space: nowrap
+
+
+
+//Таблица на всю ширину
+=dt
+	display: table
+	width: 100%
+	table-layout: fixed
+
+
+
+//Скругление углов
+=circle
+	border-radius: 50%
+
+
+
+//Наклонная сетка градиент
+=bg-lines
+	background: linear-gradient(-45deg,rgba(0, 0, 0, 0) 48%,rgba(0, 0, 0, 0.2) 50%,rgba(0, 0, 0, 0) 52%)
+	background-size: 4px 4px
+	background-color: #fff
+
+
+//Размер
+=size($width, $height)
+	width: $width
+	height: $height
+
+	@if $height == undefined
+		width: $width
+		height: $width
+
+
+
+//Градиант на бордере
+=border-grad($size)
+	border-left: $size solid $color-1
+	border-right: $size solid $color-2
+	background-position: 0 0, 0 100%
+	background-repeat: no-repeat
+	background-size: 100% $size
+	background-image: linear-gradient(to right, $color-1 0%, $color-2 100%), linear-gradient(to right, $color-1 0%, $color-2 100%)
+
+
+
+//Двойная тень на текст
+=tsh-2
+	text-shadow: -0 -1px 1px #fff, 0   -1px 1px #fff, -0    1px 1px #fff, 0    1px 1px #fff, -1px -0   1px #fff, 1px -0   1px #fff, -1px  0   1px #fff, 1px  0   1px #fff, -1px -1px 1px #fff, 1px -1px 1px #fff, -1px  1px 1px #fff, 1px  1px 1px #fff, -1px -1px 1px #fff, 1px -1px 1px #fff, -1px  1px 1px #fff, 1px  1px 1px #fff, 2px 2px 3px #333, -2px 2px 3px #333
+
+
+
+
+// BORDERS
+=borders($tl, $tr, $bl, $br)
+	border-top-left-radius: $tl + px
+	border-top-right-radius: $tr + px
+	border-bottom-left-radius: $bl + px
+	border-bottom-right-radius: $br + px
+
+
+
+
+
+//Transforms
+=scale($num)
+	transform: scale($num)
+
+=rotate($num)
+	transform: rotate($num + deg)
+
+=mirror
+	transform: scale(-1, 1)
+
+=translate($x, $y)
+	transform: translate($x + px, $y + px)
+
+
+
+
+
+// px2rem
+@function rem($pxsize)
+	@return ($pxsize / 16) + rem

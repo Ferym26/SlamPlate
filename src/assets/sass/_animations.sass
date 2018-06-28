@@ -1,0 +1,49 @@
+@import "../libs/another-dry-animate/scss/another-dry-animate.scss"
+
+//	bounce 				bounceIn 				fadeIn 					fadeOut 				rotateIn
+//	flash	  			bounceInDown 			fadeInDown 				fadeOutDown 			rotateInDownLeft
+//	pulse 				bounceInLeft 			fadeInDownBig 			fadeOutDownBig 			rotateInDownRight
+//	rubberBand 			bounceInRight 			fadeInLeft 				fadeOutLeft 			rotateInUpLeft
+//	shake   			bounceInUp 				fadeInLeftBig 			fadeOutLeftBig 			rotateInUpRight
+//	          			bounceOut 				fadeInRight 			fadeOutRight 			rotateOut
+//	swing 				bounceOutDown 			fadeInRightBig 			fadeOutRightBig 		rotateOutDownLeft
+//	tada  				bounceOutLeft 			fadeInUp 				fadeOutUp 				rotateOutDownRight
+//	wobble 				bounceOutRight 			fadeInUpBig 			fadeOutUpBig 			rotateOutUpLeft
+//	jello 				bounceOutUp 															rotateOutUpRight
+//	
+//	
+//	flipInX 					zoomIn 				slideInDown
+//	flipInY 					zoomInDown 			slideInLeft
+//	flipOutX 					zoomInLeft 			slideInRight
+//	flipOutY 					zoomInRight 		slideInUp
+// 	lightSpeedIn: 				zoomInUp 			slideOutDown
+//	lightSpeedOut				zoomOut 			slideOutLeft
+//	hinge 						zoomOutDown 		slideOutRight
+//	rollIn						zoomOutLeft 		slideOutUp
+//	rollOut 					zoomOutRight 		
+//								zoomOutUp 			
+
+
+
+/*=============== ANIMATIONS ===============*/
+
+
+// For multiple items
+$item-number1:				2
+$delay-all:					1s
+$delay-item:				0.5s
+@for $i from 1 through $item-number1
+	.planet--anim:nth-child(#{$i})
+		@include fadeIn($duration: 0.5s, $delay: $delay-all + ($delay-item * $i) - $delay-item, $iterations: 1)
+		opacity: 1
+		transition: opacity 0.5s ease
+
+
+// For single item
+.s3_butn--anim
+	@include slideInUp($duration: 2s, $delay: 0s, $iterations: 1) 
+	opacity: 1
+	transition: opacity 1s ease
+
+
+/*=============== End ANIMATIONS ===============*/

@@ -1,0 +1,40 @@
+include _mixins
+include ../modules/modules
+
+- var title = "Title";
+
+doctype html
+html
+	meta(charset="utf-8")
+	meta(http-equiv="X-UA-Compatible", content="IE=11")
+	meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1")
+
+	title= title
+
+	link(rel="shortcut icon", href="img/favicon/favicon.png")
+	link(rel="apple-touch-icon" href="img/favicon/apple-touch-icon.png")
+	link(rel="apple-touch-icon" sizes="72x72" href="img/favicon/apple-touch-icon-72x72.png")
+	link(rel="apple-touch-icon" sizes="114x114" href="img/favicon/apple-touch-icon-114x114.png")
+
+	link(rel="stylesheet", href="css/styles.css")
+
+	//- Подключение гуглошрифтов шрифтов
+	//- include _fonts
+
+	//- Цветовая тема для мобильных
+	include _mobColorTheme
+
+	body
+
+		.wrapper
+
+			p layout
+
+			include ../components/header/header
+
+			block content
+
+			include ../components/footer/footer
+
+		script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js")
+		script(src="js/common.js")
