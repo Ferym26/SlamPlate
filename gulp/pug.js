@@ -1,5 +1,5 @@
 
-module.exports = function (gulp, plugins, libs, browserSync, op) {
+module.exports = function (gulp, plugins, libs, op) {
 
 	//PUG
 
@@ -15,10 +15,10 @@ module.exports = function (gulp, plugins, libs, browserSync, op) {
 					.on('error', plugins.notify.onError({
 						title: 'PUG error'
 					}))
+					.pipe(plugins.debug({title: "Emitty: "}))
 					.pipe(gulp.dest('local/templates/html'))
 					.on('end', resolve)
 					.on('error', reject)
-					// .pipe(browserSync.reload({stream: true}));
 			});
 		})
 

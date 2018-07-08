@@ -3,10 +3,10 @@ const plugins		= require('gulp-load-plugins')(); // Автоматическая
 
 const del			= require('del');
 const ftp			= require('vinyl-ftp');
-const fs				= require('fs');
+const fs			= require('fs');
 
 const browserSync	= require('browser-sync').create();
-const op				= require('./options.json');
+const op			= require('./options.json');
 
 
 
@@ -36,7 +36,7 @@ const tasks = './gulp/';  // Путь к gulp таскам
 gulp.task('styles', require(tasks + 'styles')(gulp, plugins, libs, browserSync));
 
 //Сборка разметки pug
-gulp.task('pug', require(tasks + 'pug')(gulp, plugins, libs, browserSync, op));
+gulp.task('pug', require(tasks + 'pug')(gulp, plugins, libs, op));
 
 //Копирование папки
 // gulp.task('copy', require(tasks + 'copy')(gulp, file, dest));
