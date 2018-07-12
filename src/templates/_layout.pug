@@ -1,4 +1,4 @@
-include _mixins
+include ../mixins/mixins
 include ../modules/modules
 
 - var title = "Title";
@@ -11,33 +11,35 @@ html
 
 	title= title
 
+	link(rel="stylesheet", href="styles.css")
+	link(rel="stylesheet", href="css/styles.min.css")
+
+	//=============== Favicons ===============
 	link(rel="shortcut icon", href="img/favicon/favicon.png")
 	link(rel="apple-touch-icon" href="img/favicon/apple-touch-icon.png")
 	link(rel="apple-touch-icon" sizes="72x72" href="img/favicon/apple-touch-icon-72x72.png")
 	link(rel="apple-touch-icon" sizes="114x114" href="img/favicon/apple-touch-icon-114x114.png")
 
-	link(rel="stylesheet", href="styles.css")
-	link(rel="stylesheet", href="css/styles.min.css")
-
-	//- Подключение гуглошрифтов шрифтов
-	//- include _fonts
-
-	//- Цветовая тема для мобильных
-	include _mobColorTheme
+	//=============== Mobile Bar Color Theme ===============
+	- var color = "#000"
+	// Chrome, Firefox OS and Opera
+	meta(name="theme-color" content= color)
+	// Windows Phone
+	meta(name="msapplication-navbutton-color" content= color)
+	// iOS Safari
+	meta(name="apple-mobile-web-app-status-bar-style" content= color)
 
 	body
 
 		.wrapper
 
-			.container
+			p layout1
 
-				p layout1
+			include ../components/header/header
 
-				include ../components/header/header
+			block content
 
-				block content
-
-				include ../components/footer/footer
+			include ../components/footer/footer
 
 		script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js")
 		script(src="js/common.js")
