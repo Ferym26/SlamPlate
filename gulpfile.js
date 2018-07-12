@@ -6,7 +6,7 @@ const ftp			= require('vinyl-ftp');
 const fs			= require('fs');
 
 const browserSync	= require('browser-sync').create();
-const op			= require('./options.json');
+const op			= require('./options.js');
 
 
 
@@ -33,7 +33,7 @@ const tasks = './gulp/';  // Путь к gulp таскам
 
 
 //Сборка стилей sass
-gulp.task('styles', require(tasks + 'styles')(gulp, plugins, libs, browserSync));
+gulp.task('styles', require(tasks + 'styles')(gulp, plugins, libs, op, browserSync));
 
 //Сборка разметки pug
 gulp.task('pug', require(tasks + 'pug')(gulp, plugins, libs, op));
@@ -63,17 +63,17 @@ gulp.task('server', require(tasks + 'server')(browserSync, op));
 //Вотчеры
 gulp.task('watch', () => {
 
-	gulp.watch(['src/**/*.{scss,sass}'], gulp.series('styles'));
+	gulp.watch(op.path.watch.styles, gulp.series('styles'));
 
 	global.watch = true;
 
-	gulp.watch(['src/**/*.pug'], gulp.series('pug'))
+	gulp.watch([op.path.watch.pug], gulp.series('pug'))
 		.on('all', (event, filepath) => {
 			global.emittyChangedFile = filepath;
 		});
 
-	gulp.watch('local/templates/html/js/*.js').on("change", browserSync.reload);
-	gulp.watch('local/templates/html/*.html').on('change', browserSync.reload);
+	gulp.watch(op.path.watch.js).on("change", browserSync.reload);
+	gulp.watch(op.path.watch.html).on('change', browserSync.reload);
 
 	gulp.watch(['core/sprites/png/*.{png,jpg}'], gulp.series('sprite:png'));
 	gulp.watch(['core/sprites/svg/*.svg'], gulp.series('sprite:svg'));

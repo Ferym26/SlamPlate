@@ -7,7 +7,7 @@ module.exports = function (gulp, plugins, libs, op) {
 
 		new Promise((resolve, reject) => {
 			libs.emitty.scan(global.emittyChangedFile).then(() => {
-				gulp.src('src/pages/*.pug', { read: false })
+				gulp.src(op.path.src.pug, { read: false })
 					.pipe(libs.gulpif(global.watch, libs.emitty.filter(global.emittyChangedFile)))
 					.pipe(plugins.pug({ 
 						pretty: true
@@ -16,7 +16,7 @@ module.exports = function (gulp, plugins, libs, op) {
 						title: 'PUG error'
 					}))
 					.pipe(plugins.debug({title: "Emitty: "}))
-					.pipe(gulp.dest('local/templates/html'))
+					.pipe(gulp.dest(op.path.dev.html))
 					.on('end', resolve)
 					.on('error', reject)
 			});

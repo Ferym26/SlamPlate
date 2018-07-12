@@ -16,7 +16,8 @@ html
 	link(rel="apple-touch-icon" sizes="72x72" href="img/favicon/apple-touch-icon-72x72.png")
 	link(rel="apple-touch-icon" sizes="114x114" href="img/favicon/apple-touch-icon-114x114.png")
 
-	link(rel="stylesheet", href="css/styles.css")
+	link(rel="stylesheet", href="styles.css")
+	link(rel="stylesheet", href="css/styles.min.css")
 
 	//- Подключение гуглошрифтов шрифтов
 	//- include _fonts
@@ -28,13 +29,15 @@ html
 
 		.wrapper
 
-			p layout1
+			.container
 
-			include ../components/header/header
+				p layout1
 
-			block content
+				include ../components/header/header
 
-			include ../components/footer/footer
+				block content
+
+				include ../components/footer/footer
 
 		script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js")
 		script(src="js/common.js")

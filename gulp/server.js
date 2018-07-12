@@ -7,11 +7,11 @@ module.exports = function (browserSync, op) {
 		
 		browserSync.init({
 			server: {
-				baseDir: 'local/templates/html'
+				baseDir: op.path.dev.html
 			},
 			port: 7500,
 			notify: false,
-			// reloadDelay: 200,
+			reloadDelay: 100,
 			// tunnel: op.project.name //Demonstration page: http://projectname.localtunnel.me
 		});
 	};
