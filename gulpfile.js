@@ -38,8 +38,8 @@ gulp.task('styles', require(tasks + 'styles')(gulp, plugins, libs, op, browserSy
 //Сборка разметки pug
 gulp.task('pug', require(tasks + 'pug')(gulp, plugins, libs, op));
 
-//Копирование папки
-// gulp.task('copy', require(tasks + 'copy')(gulp, file, dest));
+//Копирование файлов
+gulp.task('copy-files', require(tasks + 'copy')(gulp));
 
 //Добавляет папки
 // gulp.task('add-dist', require(tasks + 'add-dist')(fs));
@@ -48,10 +48,11 @@ gulp.task('pug', require(tasks + 'pug')(gulp, plugins, libs, op));
 gulp.task('fav-resize', require(tasks + 'fav-resize')(gulp, plugins));
 
 // PNG SPRITE
-gulp.task('sprite:png', require(tasks + 'sprite-png')(gulp, plugins));
+// gulp.task('sprite:png', require(tasks + 'sprite-png')(gulp, plugins));
 
 // SVG SPRITE
-gulp.task('sprite:svg', require(tasks + 'sprite-svg')(gulp, plugins));
+gulp.task('svg-sprite', require(tasks + 'svg-sprite')(gulp, plugins));
+gulp.task('svg-bg', require(tasks + 'svg-bg')(gulp, plugins, op));
 
 //Заливка на хостинг
 gulp.task('deploy', require(tasks + 'deploy')(gulp, plugins, ftp, op, libs));
@@ -75,8 +76,8 @@ gulp.task('watch', () => {
 	gulp.watch(op.path.watch.js).on("change", browserSync.reload);
 	gulp.watch(op.path.watch.html).on('change', browserSync.reload);
 
-	gulp.watch(['core/sprites/png/*.{png,jpg}'], gulp.series('sprite:png'));
-	gulp.watch(['core/sprites/svg/*.svg'], gulp.series('sprite:svg'));
+	// gulp.watch(['core/sprites/png/*.{png,jpg}'], gulp.series('sprite:png'));
+	// gulp.watch(['core/sprites/svg/*.svg'], gulp.series('sprite:svg'));
 
 });
 
@@ -84,8 +85,6 @@ gulp.task('watch', () => {
 
 
 
-// gulp.task('create', gulp.series('add-dist', 'fav-resize'));
+gulp.task('create', gulp.series('fav-resize', 'copy-files'));
 
 gulp.task('default', gulp.parallel('server', gulp.series('pug', 'styles'), 'watch'));
-
-

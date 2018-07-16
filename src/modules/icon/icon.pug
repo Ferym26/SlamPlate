@@ -1,10 +1,8 @@
-//- svg
 mixin svg(imgName,className)
+
 	-var defaultClassName = ""
-	-if(className === undefined)
+
+	if(className === undefined)
 		- className = defaultClassName
 	svg(class=className)
 		use(xlink:href="./img/sprite.svg#" + imgName)
-
-
-//- angle

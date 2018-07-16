@@ -6,7 +6,7 @@ module.exports = function (gulp, plugins) {
 	return function (cb) {
 		
 		function favSize(size, name) {
-			gulp.src('core/favicon/favicon-base.png')
+			gulp.src('src/assets/images/favicon/favicon-base.png')
 				.pipe(plugins.imageResize({
 					width: size,
 					height: size,
@@ -17,13 +17,10 @@ module.exports = function (gulp, plugins) {
 				.pipe(gulp.dest('app/img/favicon/'));
 		};
 
-		favSize(114, "apple-touch-icon-114x114.png");
-
-		favSize(72, "apple-touch-icon-72x72.png");
-
-		favSize(57, "apple-touch-icon.png");
-
-		favSize(48, "favicon.png");
+		favSize(192, "android-chrome-192x192.png");
+		favSize(180, "apple-touch-icon.png");
+		favSize(32, "favicon-32x32.png");
+		favSize(16, "favicon-16x16.png");
 
 		cb();
 

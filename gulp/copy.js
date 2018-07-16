@@ -1,12 +1,14 @@
-
-module.exports = function(gulp, file, dest) {
+module.exports = function(gulp) {
 
 	// Копирование файлов
 
 	return function(cb) {
 
-		gulp.src(file)
-			.pipe(gulp.dest(dest));
+		gulp.src('./src/assets/fonts/**/*.{woff,woff2}')
+			.pipe(gulp.dest('app/fonts'));
+
+		gulp.src('./src/assets/js/*.js')
+			.pipe(gulp.dest('app/js'));
 
 		cb();
 	};

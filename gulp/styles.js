@@ -35,7 +35,7 @@ module.exports = function (gulp, plugins, libs, op, browserSync) {
 		cb();
 
 		gulp.src(op.path.src.styles + 'wysiwyg.sass')
-			.pipe(plugins.sourcemaps.init())
+			// .pipe(plugins.sourcemaps.init())
 			// .pipe(plugins.wait(200))
 			.pipe(plugins.sass({
 				outputStyle: 'expanded',
@@ -52,11 +52,11 @@ module.exports = function (gulp, plugins, libs, op, browserSync) {
 				],
 				cascade: false
 			}))
-			// .pipe(libs.cleanCSS())
+			.pipe(libs.cleanCSS())
 			.pipe(plugins.rename({
 				basename: 'styles'
 			}))
-			.pipe(plugins.sourcemaps.write())
+			// .pipe(plugins.sourcemaps.write())
 			.pipe(gulp.dest(op.path.dev.html))
 			.pipe(browserSync.stream());
 

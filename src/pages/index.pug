@@ -1,5 +1,10 @@
 extends ../templates/_layout
 
+block vars
+	- var title = "Title";
+	- var bodyClass = ''
+	- var dir = './'
+	- var layoutType = ''
 
 block content
 
@@ -9,4 +14,7 @@ block content
 
 		+button
 
-		include ../components/same/same
+block popups
+
+block scripts
+	script(src= dir + "js/jquery.waypoints.min.js")

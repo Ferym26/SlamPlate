@@ -20,7 +20,8 @@ module.exports = {
 		},
 		build: {
 			html: './local/templates/html/',
-			css: './local/templates/css/'
+			css: './local/templates/css/',
+			img: './local/templates/img/'
 		}
 	}
 };

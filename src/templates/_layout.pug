@@ -1,7 +1,13 @@
 include ../mixins/mixins
 include ../modules/modules
 
-- var title = "Title";
+block vars
+	- var title = "Title";
+	- var colorBar = "#000"
+	- var bodyClass = ''
+	- var dir = './'
+	- var layoutType = ''
+
 
 doctype html
 html
@@ -11,23 +17,22 @@ html
 
 	title= title
 
-	link(rel="stylesheet", href="styles.css")
-	link(rel="stylesheet", href="css/styles.min.css")
+	link(rel="stylesheet", href= dir + "styles.css")
+	link(rel="stylesheet", href= dir + "css/styles.min.css")
 
 	//=============== Favicons ===============
-	link(rel="shortcut icon", href="img/favicon/favicon.png")
-	link(rel="apple-touch-icon" href="img/favicon/apple-touch-icon.png")
-	link(rel="apple-touch-icon" sizes="72x72" href="img/favicon/apple-touch-icon-72x72.png")
-	link(rel="apple-touch-icon" sizes="114x114" href="img/favicon/apple-touch-icon-114x114.png")
+	link(rel="icon", type="image/png", sizes="32x32", href= dir + "img/favicon-32x32.png")
+	link(rel="icon", type="image/png", sizes="16x16", href= dir + "img/favicon-16x16.png")
+	link(rel="apple-touch-icon" sizes="180x180" href= dir + "img/apple-touch-icon.png")
+	link(rel="icon", type="image/png", sizes="192x192", href= dir + "img/android-chrome-192x192.png")
 
-	//=============== Mobile Bar Color Theme ===============
-	- var color = "#000"
+	//=============== Mobile Bar Color Theme ===============	
 	// Chrome, Firefox OS and Opera
-	meta(name="theme-color" content= color)
+	meta(name="theme-color" content= colorBar)
 	// Windows Phone
-	meta(name="msapplication-navbutton-color" content= color)
+	meta(name="msapplication-navbutton-color" content= colorBar)
 	// iOS Safari
-	meta(name="apple-mobile-web-app-status-bar-style" content= color)
+	meta(name="apple-mobile-web-app-status-bar-style" content= colorBar)
 
 	body
 
@@ -35,11 +40,16 @@ html
 
 			p layout1
 
-			include ../components/header/header
+			include ../blocks/header/header
 
 			block content
 
-			include ../components/footer/footer
+			include ../blocks/footer/footer
 
-		script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js")
-		script(src="js/common.js")
+		block popups
+
+		script(src= dir + "js/jquery-3.3.1.min.js")
+		script(src= dir + "js/popper.js")
+		script(src= dir + "js/bootstrap.min.js")
+		block scripts
+		script(src= dir + "js/common.js")

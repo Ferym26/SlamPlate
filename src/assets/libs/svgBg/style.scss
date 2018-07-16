@@ -1,0 +1,21 @@
+@import '_sprite';
+
+$sprite: map-get($icons, sprite) !default;
+$baseFontSize: 16px !default;
+
+@import '_mixins';
+
+
+//пример использования
+// .sameclass {
+// 	&:before {
+// 		content: '';
+// 		@include sprite(twitter);
+// 	}
+
+// 	&:hover {
+// 		&:before {
+// 			@include sprite(twitterHover, bg);
+// 		}
+// 	}
+// }
