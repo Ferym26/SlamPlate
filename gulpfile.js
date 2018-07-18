@@ -19,6 +19,7 @@ const libs = {
 	fs: require('fs'),
 	gulpif: require('gulp-if'),
 	cleanCSS: require('gulp-clean-css'),
+	criticalCss: require('gulp-penthouse'),
 
 	sprity: require('sprity'),
 
@@ -34,6 +35,9 @@ const tasks = './gulp/';  // Путь к gulp таскам
 
 //Сборка стилей sass
 gulp.task('styles', require(tasks + 'styles')(gulp, plugins, libs, op, browserSync));
+
+//Critical CSS стили
+gulp.task('critical', require(tasks + 'critical')(gulp, plugins, libs, op));
 
 //Сборка разметки pug
 gulp.task('pug', require(tasks + 'pug')(gulp, plugins, libs, op));
@@ -77,7 +81,7 @@ gulp.task('watch', () => {
 	gulp.watch(op.path.watch.html).on('change', browserSync.reload);
 
 	// gulp.watch(['core/sprites/png/*.{png,jpg}'], gulp.series('sprite:png'));
-	// gulp.watch(['core/sprites/svg/*.svg'], gulp.series('sprite:svg'));
+	gulp.watch(['src/assets/sprites/svg/*.svg'], gulp.series('svg-sprite'));
 
 });
 
