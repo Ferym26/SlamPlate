@@ -5,7 +5,7 @@ module.exports = function (gulp, plugins) {
 	
 	return function () {
 
-		return gulp.src('core/sprites/svg/*.svg')
+		return gulp.src('src/assets/sprites/svg/*.svg')
 			.pipe(plugins.svgmin({
 				js2svg: {
 					pretty: true

@@ -29,8 +29,16 @@ const libs = {
 const tasks = './gulp/';  // Путь к gulp таскам
 
 
+gulp.task('svg-inject', function (cb) {
+	gulp.src('./app/index.html')
+		.pipe(plugins.inject(
+			gulp.src(['./app/img/sprite.svg']),
+			{ transform: function (filePath, file) { return file.contents.toString('utf8') } }
+		))
+		.pipe(gulp.dest('./test'));
 
-
+	cb();
+});
 
 
 //Сборка стилей sass
