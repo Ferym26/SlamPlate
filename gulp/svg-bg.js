@@ -1,10 +1,10 @@
 'use strict';
 
-module.exports = function(gulp, plugins, libs, op) {
+module.exports = function(gulp, plugins, op) {
 
     return function () {
 
-        return gulp.src("./src/assets/sprites/svgBg/**/*.svg")
+        return gulp.src(op.path.src.sprites + 'svgBg/*.svg')
             // minify svg
             .pipe(plugins.svgmin({
                 js2svg: {
@@ -21,35 +21,30 @@ module.exports = function(gulp, plugins, libs, op) {
             }))
             .pipe(plugins.replace('&gt;', '>'))
             .pipe(plugins.svgSprite({
-                shape               : {
-                    id              : {
-                        generator   : function(name) {
-                            return options.paths.basename(name, '.svg')
-                        }
-                    }
-                    // spacing: {
-                    // 	padding: 5
-                    // }
-                },
-                mode: {
-                    css: {
-                        dest: "./",
-                        layout: "horizontal",
-                        sprite: "../img/sprite-bg.svg",
-                        bust: false,
-                        render: {
-                            scss: {
-                                dest: "../../src/assets/libs/svgBg/_sprite.scss",
-                                template: "src/assets/libs/svgBg/sprite-template.scss"
-                            }
-                        }
-                    }
-                },
-                variables: {
-                    mapname: "icons"
-                }
-            }))
-            .pipe(gulp.dest('./app/img/'));
+				shape: {
+					spacing: {
+						padding: 5
+					}
+				},
+				mode: {
+					css: {
+						dest: "./",
+						layout: "diagonal",
+						sprite: './spriteBg.svg',
+						bust: false,
+						render: {
+							scss: {
+								dest: "../../src/assets/libs/svgBg/_sprite.scss",
+								template: "src/assets/libs/svgBg/sprite-template.scss"
+							}
+						}
+					}
+				},
+				variables: {
+					mapname: "icons"
+				}
+			}))
+            .pipe(gulp.dest(op.path.dev.img));
 
     };
 

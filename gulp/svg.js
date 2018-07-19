@@ -1,11 +1,11 @@
 
-module.exports = function (gulp, plugins) {
+module.exports = function (gulp, plugins, op) {
 
 	//Sprite SVG
 	
 	return function () {
 
-		return gulp.src('src/assets/sprites/svg/*.svg')
+		return gulp.src(op.path.src.sprites + 'svg/*.svg')
 			.pipe(plugins.svgmin({
 				js2svg: {
 					pretty: true
@@ -27,6 +27,6 @@ module.exports = function (gulp, plugins) {
 					}
 				}
 			}))
-			.pipe(gulp.dest('app/img/'))
+			.pipe(gulp.dest(op.path.dev.img))
 	};
 };

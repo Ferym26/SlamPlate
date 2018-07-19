@@ -19,3 +19,17 @@ $baseFontSize: 16px !default;
 // 		}
 // 	}
 // }
+
+.social {
+	@include size(30px, 45px);
+	font-size: 24px;
+	background-color: #ccc;
+}
+
+.i-fb {
+
+	&:before {
+		@include pseudo;
+		@include sprite(fb);
+	}
+}

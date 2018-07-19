@@ -59,12 +59,10 @@ gulp.task('copy-files', require(tasks + 'copy')(gulp));
 //Создает фавки для мобильных
 gulp.task('fav-resize', require(tasks + 'fav-resize')(gulp, plugins));
 
-// PNG SPRITE
+// SPRITES
+gulp.task('sprite:svg', require(tasks + 'svg')(gulp, plugins, op));
+gulp.task('sprite:svg-bg', require(tasks + 'svg-bg')(gulp, plugins, op));
 // gulp.task('sprite:png', require(tasks + 'sprite-png')(gulp, plugins));
-
-// SVG SPRITE
-gulp.task('svg-sprite', require(tasks + 'svg-sprite')(gulp, plugins));
-gulp.task('svg-bg', require(tasks + 'svg-bg')(gulp, plugins, op));
 
 //Заливка на хостинг
 gulp.task('deploy', require(tasks + 'deploy')(gulp, plugins, ftp, op, libs));
@@ -89,7 +87,8 @@ gulp.task('watch', () => {
 	gulp.watch(op.path.watch.html).on('change', browserSync.reload);
 
 	// gulp.watch(['core/sprites/png/*.{png,jpg}'], gulp.series('sprite:png'));
-	gulp.watch(['src/assets/sprites/svg/*.svg'], gulp.series('svg-sprite'));
+	gulp.watch([op.path.src.sprites + 'svg/*.svg'], gulp.series('sprite:svg'));
+	gulp.watch([op.path.src.sprites + 'svgBg/*.svg'], gulp.series('sprite:svg-bg'));
 
 });
 
@@ -99,4 +98,11 @@ gulp.task('watch', () => {
 
 gulp.task('create', gulp.series('fav-resize', 'copy-files'));
 
-gulp.task('default', gulp.parallel('server', gulp.series('pug', 'styles'), 'watch'));
+gulp.task('default', gulp.parallel('server',
+	gulp.series(
+		'pug',
+		'styles',
+		'sprite:svg', 
+		'sprite:svg-bg'
+	), 'watch')
+);
