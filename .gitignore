@@ -49,6 +49,7 @@ package-lock.json
 .deploy
 /backup/*
 /dist
+/test
 /specs/*
 /frontend
 app
