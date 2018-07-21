@@ -20,6 +20,7 @@ const libs = {
 	gulpif: require('gulp-if'),
 	cleanCSS: require('gulp-clean-css'),
 	criticalCss: require('gulp-penthouse'),
+	replace: require('gulp-replace-task'),
 
 	sprity: require('sprity'),
 
@@ -28,17 +29,6 @@ const libs = {
 
 const tasks = './gulp/';  // Путь к gulp таскам
 
-
-gulp.task('svg-inject', function (cb) {
-	gulp.src('./app/index.html')
-		.pipe(plugins.inject(
-			gulp.src(['./app/img/sprite.svg']),
-			{ transform: function (filePath, file) { return file.contents.toString('utf8') } }
-		))
-		.pipe(gulp.dest('./test'));
-
-	cb();
-});
 
 
 //Сборка стилей sass
@@ -63,6 +53,8 @@ gulp.task('fav-resize', require(tasks + 'fav-resize')(gulp, plugins));
 gulp.task('sprite:svg', require(tasks + 'svg')(gulp, plugins, op));
 gulp.task('sprite:svg-bg', require(tasks + 'svg-bg')(gulp, plugins, op));
 // gulp.task('sprite:png', require(tasks + 'sprite-png')(gulp, plugins));
+gulp.task('svg-inject', require(tasks + 'svg-inject')(gulp, plugins, op));
+gulp.task('svg-path-replace', require(tasks + 'svg-path-replace')(gulp, libs, op));
 
 //Заливка на хостинг
 gulp.task('deploy', require(tasks + 'deploy')(gulp, plugins, ftp, op, libs));
