@@ -1,4 +1,3 @@
-
 module.exports = function (browserSync, op) {
 
 	//SERVER

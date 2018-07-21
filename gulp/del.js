@@ -1,9 +1,10 @@
-
 module.exports = function (libs, folder) {
 
 	//Удаляет папку
 
-	return function () {
+	return function (cd) {
+
+		cd()
 
 		return libs.del(folder);
 		

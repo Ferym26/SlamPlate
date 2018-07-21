@@ -1,4 +1,4 @@
-module.exports = function(gulp, plugins, libs, op) {
+module.exports = function(gulp, plugins, op) {
 
 	//Замена путей у элементов SVG спрайта
 	// <use xlink:href="./img/sprite.svg#poison"></use>
@@ -6,7 +6,7 @@ module.exports = function(gulp, plugins, libs, op) {
 
 	return function(cb) {
 
-		gulp.src('test/*.html')
+		gulp.src(op.path.build.html + '**/*.html')
 			// .pipe(libs.replaceReg({
 			// 	patterns: [
 			// 		{
@@ -16,7 +16,7 @@ module.exports = function(gulp, plugins, libs, op) {
 			// 	]
 			// }))
 			.pipe(plugins.replace('./img/sprite.svg', ''))
-			.pipe(gulp.dest('test/'));
+			.pipe(gulp.dest(op.path.build.html));
 
 		cb();
 	};

@@ -35,6 +35,7 @@ _materials
 .hg
 .idea
 .svn
+.gulp
 node_modules
 makets
 public
@@ -50,6 +51,7 @@ package-lock.json
 /backup/*
 /dist
 /test
+/local
 /specs/*
 /frontend
 app

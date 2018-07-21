@@ -4,12 +4,14 @@ module.exports = function(gulp, plugins, op) {
 
 	return function(cb) {
 
-		gulp.src('./app/index.html')
+		gulp.src(op.path.dev.html + '**/*.html')
 			.pipe(plugins.inject(
-				gulp.src(['./app/img/sprite.svg']),
+				gulp.src([
+					op.path.dev.img + 'sprite.svg'
+				]),
 				{ transform: function (filePath, file) { return file.contents.toString('utf8') } }
 			))
-			.pipe(gulp.dest('./test'));
+			.pipe(gulp.dest(op.path.build.html));
 
 		cb();
 

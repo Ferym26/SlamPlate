@@ -1,4 +1,4 @@
-module.exports = function(gulp) {
+module.exports = function(gulp, from, to) {
 
 	// Копирование файлов
 

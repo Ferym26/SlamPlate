@@ -1,4 +1,3 @@
-
 module.exports = function(gulp, plugins, op) {
 
 	// BASE-FRONT Копирует файлы под тип проекта ленд/преленд

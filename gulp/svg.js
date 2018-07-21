@@ -1,4 +1,3 @@
-
 module.exports = function (gulp, plugins, op) {
 
 	//Sprite SVG

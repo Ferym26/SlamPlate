@@ -1,11 +1,11 @@
-module.exports = function (gulp, plugins, libs, op, browserSync) {
+module.exports = function (gulp, plugins, libs, op) {
 
-	// STYLES
+	// STYLES BUILD
 
 	return function (cb) {
 		
 		gulp.src(op.path.src.styles + 'styles.sass')
-			.pipe(plugins.sourcemaps.init())
+			// .pipe(plugins.sourcemaps.init())
 			// .pipe(plugins.wait(200))
 			.pipe(plugins.sass({
 				outputStyle: 'expanded',
@@ -13,7 +13,7 @@ module.exports = function (gulp, plugins, libs, op, browserSync) {
 			}))
 			.on('error', plugins.notify.onError({
 				title: 'SASS error'
-			}))			
+			}))
 			.pipe(plugins.autoprefixer({
 				browsers: [
 					'> 1%',
@@ -22,14 +22,14 @@ module.exports = function (gulp, plugins, libs, op, browserSync) {
 				],
 				cascade: false
 			}))
-			// .pipe(libs.cleanCSS())
+			.pipe(libs.cleanCSS())
 			.pipe(plugins.rename({
 				suffix: '.min',
 				prefix : ''
 			}))
-			.pipe(plugins.sourcemaps.write())
-			.pipe(gulp.dest(op.path.dev.css))
-			.pipe(browserSync.stream());
+			// .pipe(plugins.sourcemaps.write())
+			.pipe(gulp.dest(op.path.build.css))
+			// .pipe(browserSync.stream());
 
 		cb();
 
@@ -56,8 +56,8 @@ module.exports = function (gulp, plugins, libs, op, browserSync) {
 				basename: 'styles'
 			}))
 			// .pipe(plugins.sourcemaps.write())
-			.pipe(gulp.dest(op.path.dev.html))
-			.pipe(browserSync.stream());
+			.pipe(gulp.dest(op.path.build.html))
+			// .pipe(browserSync.stream());
 
 		cb();
 		

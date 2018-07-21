@@ -1,4 +1,3 @@
-
 module.exports = function(fs) {
 
 	//ADD-DIST добавляет папки

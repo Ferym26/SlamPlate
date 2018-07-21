@@ -1,4 +1,3 @@
-
 module.exports = function (gulp, plugins) {
 
 	//Генерация фавиконок
