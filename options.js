@@ -5,7 +5,7 @@ module.exports = {
 			html:	'./app/',
 			css:	'./app/css/',
 			js:		'./app/js/',
-			img:	'./app/img/'			
+			img:	'./app/img/'
 		},
 		src: {
 			pug:	'./src/pages/*.pug',
