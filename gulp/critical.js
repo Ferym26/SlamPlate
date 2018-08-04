@@ -4,8 +4,8 @@ module.exports = function(gulp, plugins, libs, op) {
 
 	return function(cb) {
 		gulp.src([
-			op.path.dev.html + 'styles.css',
-			op.path.dev.css + 'styles.min.css'
+				op.path.dev.html + 'styles.css',
+				op.path.dev.css + 'styles.min.css'
 			])
 			.pipe( libs.criticalCss({
 				out: 'critical.css',

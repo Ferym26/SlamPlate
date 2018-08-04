@@ -4,7 +4,7 @@ module.exports = function (gulp, plugins, libs, op, browserSync) {
 
 	return function (cb) {
 		
-		gulp.src(op.path.src.styles + 'styles.{sass,scss}')
+		return gulp.src(op.path.src.styles + 'styles.{sass,scss}')
 			.pipe(plugins.sourcemaps.init())
 			// .pipe(plugins.wait(200))
 			.pipe(plugins.sass({
@@ -33,7 +33,7 @@ module.exports = function (gulp, plugins, libs, op, browserSync) {
 
 		cb();
 
-		gulp.src(op.path.src.styles + 'wysiwyg.{sass,scss}')
+		return gulp.src(op.path.src.styles + 'wysiwyg.{sass,scss}')
 			// .pipe(plugins.sourcemaps.init())
 			// .pipe(plugins.wait(200))
 			.pipe(plugins.sass({

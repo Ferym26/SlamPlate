@@ -17,8 +17,11 @@ html
 
 	title= title
 
-	link(rel="stylesheet", href= dir + "styles.css")
-	link(rel="stylesheet", href= dir + "css/styles.min.css")
+	link(rel="preload", href= dir + "styles.css" as="style" onload="this.rel='stylesheet'") 
+	link(rel="preload", href= dir + "css/styles.min.css" as="style" onload="this.rel='stylesheet'")
+	noscript
+		link(rel="stylesheet", href= dir + "styles.css")
+		link(rel="stylesheet", href= dir + "css/styles.min.css")
 
 	//=============== Favicons ===============
 	link(rel="icon", type="image/png", sizes="32x32", href= dir + "img/favicon-32x32.png")
@@ -38,7 +41,7 @@ html
 
 		.wrapper
 
-			p layout123
+			p layout1
 
 			include ../blocks/header/header
 
