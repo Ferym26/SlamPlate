@@ -1,11 +1,17 @@
 // VARS, MIXINS
 @import "_variables";
 @import "_mixins";
+@import "_atomic";
 
 
 // SPRITES
 // @import "../images/sprites/png/_sprite.scss"
 @import "../libs/svgBg/style";
+
+
+
+//MIXINS
+@import "../../mixins/mixins";
 
 
 // BLOCKS

@@ -1,0 +1,60 @@
+.preloader
+	// position: fixed
+	// +size(100%)
+	// @extend %trbl
+	// background-color: #1b1b1b
+	// z-index: 500
+
+	&__inner
+		position: relative
+		max-width: 1200px
+		height: 100%
+		margin: 0 auto
+
+.biglogo
+	position: absolute
+	+size(180px)
+	+center
+
+	.logo-cloud
+		position: absolute
+		+center
+
+	.logo-line
+		position: absolute
+		+center
+
+
+	#cloud
+		// display: none
+		opacity: 1
+		fill: none
+		stroke: #12b880
+		stroke-width: 7
+		stroke-linejoin: round
+		stroke-miterlimit: 4
+		// stroke-dasharray: none
+
+	#line-1
+		display: none
+		// opacity: 1
+		// fill: none
+		stroke: green
+		stroke-width: 5
+		// stroke-linecap: butt
+		// stroke-linejoin: miter
+		// stroke-miterlimit: 4
+		// stroke-dasharray: none
+		// stroke-opacity: 1
+
+	#line-2
+		// display: none
+		// opacity: 1
+		fill: none
+		stroke: #fff
+		stroke-width: 5
+		// stroke-linecap: butt
+		stroke-linejoin: round
+		// stroke-miterlimit: 4
+		// stroke-dasharray: none
+		// stroke-opacity: 1

@@ -17,7 +17,7 @@ html
 
 	title= title
 
-	link(rel="preload", href= dir + "styles.css" as="style" onload="this.rel='stylesheet'") 
+	link(rel="preload", href= dir + "styles.css" as="style" onload="this.rel='stylesheet'")
 	link(rel="preload", href= dir + "css/styles.min.css" as="style" onload="this.rel='stylesheet'")
 	noscript
 		link(rel="stylesheet", href= dir + "styles.css")
@@ -29,7 +29,7 @@ html
 	link(rel="apple-touch-icon" sizes="180x180" href= dir + "img/apple-touch-icon.png")
 	link(rel="icon", type="image/png", sizes="192x192", href= dir + "img/android-chrome-192x192.png")
 
-	//=============== Mobile Bar Color Theme ===============	
+	//=============== Mobile Bar Color Theme ===============
 	// Chrome, Firefox OS and Opera
 	meta(name="theme-color" content= colorBar)
 	// Windows Phone
@@ -38,6 +38,8 @@ html
 	meta(name="apple-mobile-web-app-status-bar-style" content= colorBar)
 
 	body
+
+		+preloader
 
 		.wrapper
 
