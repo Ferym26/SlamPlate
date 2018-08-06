@@ -196,6 +196,9 @@ const slamPlate = new function() {
 				delay: 0,
 				left: 22,
 				// opacity: 0
+				onComplete: function() {
+					logo.addClass('biglogo--hover');
+				}
 			}, "preloadUP")
 			// .to(preloader, 0.5, {
 			// 	autoAlpha: 0,
@@ -203,31 +206,18 @@ const slamPlate = new function() {
 			// }, "preloadUP")
 			// .remove(preloader)
 
+		let timerLogo;
 
-			// .to(logo, 0.5, {
-			// 	// x: 0,
-			// 	// y: 100,
-			// 	// opacity: 0,
-			// 	// rotationY: 360,
-			// 	// ease: Power3.easeIn,
-			// 	delay: 0.5,
-			// 	// yoyo: true,
-			// 	// repeat: 1,
-			// })
-
-		// var tickInterval2 = function() {
-		// 	setInterval(function() {
-		// 		logoLine.drawsvg('animate');
-		// 	}, 1500);
-		// };
-
-		// logo
-		// 	.mouseenter(function() {
-		// 		tickInterval2();
-		// 	})
-		// 	.mouseleave(function() {
-		// 		clearInterval(tickInterval2);
-		// 	});
-
+		$(document).on({
+			mouseenter: function () {
+				logoLine.drawsvg('animate');
+				timerLogo = setInterval(function() {
+					logoLine.drawsvg('animate');
+				}, 1500);
+			},
+			mouseleave: function () {
+				timerLogo = clearInterval(timerLogo);
+			}
+		}, '.biglogo--hover');
 	};
 };
